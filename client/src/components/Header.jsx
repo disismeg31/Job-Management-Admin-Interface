@@ -1,8 +1,12 @@
 import React from 'react'
-
+import Navbar from './Navbar.jsx';
+import SearchComponent from './SearchComponent.jsx';
 function Header() {
   return (
-    <div>Header</div>
+    <div className='bg-[#ffffff] flex flex-col w-full'>
+      <Navbar/>
+      <SearchComponent/>
+    </div>
   )
 }
 

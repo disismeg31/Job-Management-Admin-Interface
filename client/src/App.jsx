@@ -1,18 +1,11 @@
 import './App.css'
+import Layout from './layout/layout'
 
 function App() {
    
   return (
     <>
-
-      <div >
-         
-      </div>
-      <h1>Vite + React</h1>
-       
-      <p className="read-the-docs text-3xl font-bold underline">
-        Full Stack Developer
-      </p>
+    <Layout/>
     </>
   )
 }
