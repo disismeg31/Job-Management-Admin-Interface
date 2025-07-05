@@ -5,7 +5,13 @@ const CONSTANTS = {
             jobs_collection:'jobs'
     },
     URLS:{
-
+        ADMIN_PREFIX:'/api/admin'
+    },
+    subUrls:{
+        admin:{
+            Get_Jobs:'/jobs',
+            Add_Job:'/jobs'
+        }
     }
 }
 
