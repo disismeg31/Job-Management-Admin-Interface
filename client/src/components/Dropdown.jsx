@@ -1,11 +1,12 @@
 import React,{useState,useEffect, useRef} from 'react';
 // import { IoChevronDown } from "react-icons/io5";
 import chevron from './../assets/chevron.png'
-function Dropdown() {
+function Dropdown({ value, onChange,options }) {
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState("Preferred Location")
+  // const [selected, setSelected] = useState("Preferred Location")
   const dropdownRef = useRef(null);
-  const options = ["Bangalore", "Kochi", "Chennai", "Hyderabad"]
+  // const newOptions = [...options,"none"]
+  // const demoptions = ["Bangalore", "Kochi", "Chennai", "Hyderabad"]
   const toggleDropdown = () => setIsOpen((prev) => !prev);
     
   useEffect(() => {
@@ -26,7 +27,8 @@ function Dropdown() {
         // onClick={() => setIsOpen(!isOpen)}
         className="inline-flex justify-between items-center w-full rounded-md bg-white px-4 py-2  border-none"
       >
-        {selected}
+        {value || "Preferred Location"}
+        {/* {selected} */}
         <img src={chevron} alt="dropdown" className="w-3 h-1.5" />
         {/* <IoChevronDown className="ml-2 text-gray-400" /> */}
       </button>
@@ -38,7 +40,8 @@ function Dropdown() {
                 key={option}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
-                  setSelected(option)
+                  onChange(option)
+                  // setSelected(option)
                   setIsOpen(false)
                 }}
               >

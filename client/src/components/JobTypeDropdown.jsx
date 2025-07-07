@@ -2,11 +2,11 @@ import React,{useState,useEffect, useRef} from 'react';
 // import { IoChevronDown } from "react-icons/io5";
 import chevron from './../assets/chevron.png'
 
-function JobTypeDropdown() {
+function JobTypeDropdown({value, onChange,options}) {
     const [isOpen, setIsOpen] = useState(false)
-    const [selected, setSelected] = useState("Job type")
+    // const [selected, setSelected] = useState("Job type")
     const dropdownRef = useRef(null);
-    const options = ["FullTime", "PartTime", "Contract", "Internship"]
+    // const options = ["FullTime", "PartTime", "Contract", "Internship"]
     const toggleDropdown = () => setIsOpen((prev) => !prev);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function JobTypeDropdown() {
             // onClick={() => setIsOpen(!isOpen)}
             className="inline-flex justify-between items-center w-full rounded-md bg-white px-4 py-2  border-none"
           >
-            {selected}
+            {value||"Job type"}
             <img src={chevron} alt="dropdown" className="w-3 h-1.5" />
             {/* <IoChevronDown className="ml-2 text-gray-400" /> */}
           </button>
@@ -39,7 +39,8 @@ function JobTypeDropdown() {
                 key={option}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
-                  setSelected(option)
+                  onChange(option)
+                  // setSelected(option)
                   setIsOpen(false)
                 }}
               >

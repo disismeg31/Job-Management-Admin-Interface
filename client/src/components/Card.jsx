@@ -15,6 +15,30 @@ function Card({item}) {
     swiggy:swiggy,
     tesla:tesla
   }
+  
+function timeSince(dateString) {
+  const now = new Date();
+  const past = new Date(dateString);
+  const seconds = Math.floor((now - past) / 1000);
+
+  const intervals = [
+    { label: 'year', seconds: 31536000 },
+    { label: 'month', seconds: 2592000 },
+    { label: 'day', seconds: 86400 },
+    { label: 'hour', seconds: 3600 },
+    { label: 'minute', seconds: 60 },
+    { label: 'second', seconds: 1 }
+  ];
+
+  for (const interval of intervals) {
+    const count = Math.floor(seconds / interval.seconds);
+    if (count > 0) {
+      return `${count} ${interval.label}${count > 1 ? 's' : ''} ago`;
+    }
+  }
+
+  return 'Just now';
+}
   return (
     <div className='w-79 h-90 bg-[#FFFFFF] text-[#555555] rounded-2xl m-2 p-4'>
       <div className='flex justify-between'>
@@ -24,7 +48,7 @@ function Card({item}) {
           <img className='m-2' src={companyLogos[item.company.toLowerCase()] || amazon} alt="image" />
           }
           </span>
-        <span className='m-2 bg-[#B0D9FF] text-[#000000] h-8 text-sm py-2 px-2.5 rounded-lg leading-[1rem]'>24h Ago</span>
+        <span className='m-2 bg-[#B0D9FF] text-[#000000] h-8 text-sm py-2 px-2.5 rounded-lg leading-[1rem]'>{timeSince(item.createdAt)}</span>
       </div>
       <div>
         <p className='text-[#000000] text-xl font-bold'>{item.title}</p>
