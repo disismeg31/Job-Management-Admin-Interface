@@ -10,13 +10,16 @@ function List() {
  
   if (loading) {
     return( 
-    <>
+    <> 
+    <div className='flex justify-center items-center'>
       <Waveform
       size="35"
       stroke="3.5"
       speed="1"
       color="black" 
-    /></>
+    />
+    </div>
+      </>
   )};
 
   if (filteredJobs.length === 0) {

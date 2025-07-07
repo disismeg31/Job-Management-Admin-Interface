@@ -117,7 +117,7 @@ function Modal({ onClose, open }) {
      `}
     >
       <div className="bg-[#FFFFFF] text-[#222222] rounded-2xl p-7.5 max-w-[850px] h-auto">
-        <button onClick={onClose}>
+        <button className="cursor-pointer" onClick={onClose}>
           <IoMdClose size={23} />
         </button>
         <p className="text-center text-2xl font-bold">Create Job Opening</p>
