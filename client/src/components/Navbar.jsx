@@ -4,6 +4,7 @@ import Modal from './Modal';
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuFill } from "react-icons/ri";
 import { VscMenu } from "react-icons/vsc";
+import { IoIosAddCircleOutline } from "react-icons/io";
 function Navbar() {
   const [openPopup,setOpenPopup] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +37,9 @@ function Navbar() {
         }}
         onClick={()=>setOpenPopup(true)}
         >
-            Create Jobs
+          <span className='block md:hidden'><IoIosAddCircleOutline size={23}/></span>  
+          <span className='hidden md:block'>Create Jobs</span>  
+            {/* Create Jobs */}
         </button>
     </nav>
     {
