@@ -8,11 +8,13 @@ return axios.get(`${BASE_URL}/api/admin/jobs`,{params:filters})
 .catch(err=>{throw err})
 }
 
-// function postJob(jobData) {
-//   // axios post call
-// }
+function postJob(jobData) {
+  return axios.post(`${BASE_URL}/api/admin/jobs`,jobData)
+  .then(res=>res.data)
+  .catch(err => {throw err})
+}
 
 export default { 
     getJobs ,
-    // postJob
+    postJob
 }

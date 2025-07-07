@@ -4,6 +4,9 @@ import api from './../services/api';
 export const JobsContext = createContext();
 
 function JobContextProvider({children}) {
+    // const [jobData,setJobData] = useState({
+
+    // })
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filteredJobs, setFilteredJobs] = useState([]);
@@ -13,7 +16,7 @@ function JobContextProvider({children}) {
         jobType:'',
         salary:[0,Infinity]
     })
-
+    const [message,setMessage]=useState("")
     useEffect(() => {
     api.getJobs()
     .then(data => {
@@ -24,6 +27,13 @@ function JobContextProvider({children}) {
     .catch(err=> console.error(err))
     .finally(() => setLoading(false));
   }, []);
+
+  // useEffect(()=>{
+  //   if (!jobData || Object.keys(jobData).length === 0) return; 
+  //   api.postJob(jobData)
+  //   .then(result=>setMessage(result.message))
+  //   .catch(err => setMessage(err.response?.data?.message || "Something went wrong"))
+  // },[jobData])
 
   useEffect(()=>{
     let updated = jobs;
@@ -49,8 +59,9 @@ function JobContextProvider({children}) {
     setFilteredJobs(updated);
   },[filters, jobs])
 
+
   return (
-    <JobsContext.Provider value={{ jobs, filteredJobs, filters, setFilters,loading }}>
+    <JobsContext.Provider value={{ jobs, filteredJobs, filters, setFilters,loading,message,setMessage,setJobs, setFilteredJobs }}>
       {children}
     </JobsContext.Provider>
   )
