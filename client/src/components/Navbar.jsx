@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo.png';
 import Modal from './Modal';
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuFill } from "react-icons/ri";
