@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
 import logo from '../assets/logo2.png';
+import Modal from './Modal';
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuFill } from "react-icons/ri";
 import { VscMenu } from "react-icons/vsc";
 function Navbar() {
+  const [openPopup,setOpenPopup] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     // px-[26px] py-[16px] mx-50
+    <>
     <nav className='bg-white text-[#303030] my-3 h-auto gap-4 w-full max-w-screen-xl mx-auto py-4 px-4 rounded-full flex flex-wrap justify-between items-center text-base shadow-[0px_0px_20px_0px_rgba(127,127,127,0.15)]'>
         <div className='flex-shrink-0'>
             <img src={logo} alt="logo" className="w-10 h-auto drop-shadow-md invert" />
@@ -31,10 +34,16 @@ function Navbar() {
         style={{
         background: 'linear-gradient(180deg, rgb(161, 40, 255), rgb(97, 0, 173))',
         }}
+        onClick={()=>setOpenPopup(true)}
         >
             Create Jobs
         </button>
     </nav>
+    {
+      openPopup && 
+      <Modal open={openPopup} onClose={()=>setOpenPopup(false)}/>
+    }
+    </>
   )
 }
 

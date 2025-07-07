@@ -40,14 +40,14 @@ const jobSchema = new mongoose.Schema({
     },
     requirements:{
         type:String,
-        required:[true,"Please enter the job requirements"],
+        // required:[true,"Please enter the job requirements"],
         minLength: [20, "requirements should be within range 20-1000"],
         maxLength: [1000, "requirements should be within range 20-1000"]
    
     },
     responsibilities:{
         type:String,
-        required:[true,"Please enter the job responsibilities"],
+        // required:[true,"Please enter the job responsibilities"],
         minLength: [20, "responsibilities should be within range 20-1000"],
         maxLength: [1000, "responsibilities should be within range 20-1000"]
 
