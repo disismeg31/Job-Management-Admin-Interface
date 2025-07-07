@@ -44,8 +44,14 @@ function JobContextProvider({children}) {
     }
 
     if (filters.location) {
-      updated = updated.filter(job => job.location === filters.location);
+      updated = updated.filter(job =>
+        job.location.toLowerCase().includes(filters.location.toLowerCase())
+      );
     }
+
+    // if (filters.location) {
+    //   updated = updated.filter(job => job.location === filters.location);
+    // }
 
     if (filters.jobType) {
       updated = updated.filter(job => job.jobType === filters.jobType);

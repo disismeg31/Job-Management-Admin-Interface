@@ -23,7 +23,7 @@ const { jobs, filters, setFilters } = useContext(JobsContext);
   return (
     <div className='text-[#686868] flex flex-wrap  justify-between items-center w-full min-h-12 divide-x-2 divide-[#EAEAEA]  px-4 sm:px-6 lg:px-8'>
       <label className='flex flex-1 justify-center items-center min-w-[300px]'>
-      <span className='mr-3'><IoSearchOutline/></span>
+      <span className='mx-3'><IoSearchOutline/></span>
       <input className='w-full h-10 focus:outline-0 placeholder:text-[#686868]' 
       id="textSearch" 
       type="text" 
@@ -33,12 +33,19 @@ const { jobs, filters, setFilters } = useContext(JobsContext);
       />
       </label>
       <label className='flex flex-1 justify-center items-center min-w-[300px]'>
-        <span className='mr-3'><SlLocationPin/></span>
-        <Dropdown 
+        <span className='mx-3'><SlLocationPin/></span>
+        <input className='w-full h-10 focus:outline-0 placeholder:text-[#686868]' 
+        id="textSearch" 
+        type="text" 
+        value={filters.location}
+        placeholder="Preffered Location"
+        onChange={(e) => setFilters(f => ({ ...f, location: e.target.value }))}
+        />
+        {/* <Dropdown 
         options={locations}
         value={filters.location}
         onChange={(val)=>setFilters(f=>({...f,location:val === "None" ? "":val}))}
-        />
+        /> */}
       </label>
       <label className='flex flex-1 justify-center items-center min-w-[300px]'>
         <span className='mr-3'><RiUserVoiceLine/></span>

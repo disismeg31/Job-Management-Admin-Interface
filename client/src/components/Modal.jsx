@@ -112,17 +112,17 @@ function Modal({ onClose, open }) {
     </Snackbar>
     <div
       className={`fixed inset-0 z-50 justify-center items-center flex flex-wrap flex-col w-full
-     transition-colors 
+     transition-colors overflow-y-auto p-4
      ${open ? "visible bg-black/20" : "invisible"} 
      `}
     >
-      <div className="bg-[#FFFFFF] text-[#222222] rounded-2xl p-7.5 max-w-[850px] h-auto">
+      <div className="bg-[#FFFFFF] text-[#222222] rounded-2xl p-7.5 max-w-[850px] max-h-[90vh] overflow-y-auto">
         <button className="cursor-pointer" onClick={onClose}>
           <IoMdClose size={23} />
         </button>
         <p className="text-center text-2xl font-bold">Create Job Opening</p>
         <form className="w-full"  onSubmit={handleSubmit}>
-          <div className="flex justify-center w-full gap-4 my-4">
+          <div className="flex flex-col md:flex-row justify-center w-full gap-4 my-4">
             <label className="flex flex-1 flex-col font-bold mb-1.5">
               Job Title
               <input
@@ -149,7 +149,7 @@ function Modal({ onClose, open }) {
             </label>
           </div>
 
-          <div className="flex justify-center w-full gap-4 my-4">
+          <div className="flex flex-col md:flex-row justify-center w-full gap-4 my-4">
             <label className="flex flex-1 flex-col font-bold mb-1.5">
               Location
               <input
@@ -177,7 +177,7 @@ function Modal({ onClose, open }) {
               name="jobType"
               value={formData.jobType || ""}
               onChange={handleInput}
-              className="w-full h-14 px-3 py-2 text-base focus:outline-0 border border-[#bcbcbc] focus:border-[#222222] rounded-[10px] bg-white"
+              className="w-full h-14 px-3 py-2 text-base text-[#bcbcbc] focus:outline-0 border border-[#bcbcbc] focus:border-[#222222] focus:text-[#222222] rounded-[10px] bg-white"
               >
               <option value="" hidden>Select Job Type</option>
               <option value="fullTime">Full Time</option>
@@ -188,7 +188,7 @@ function Modal({ onClose, open }) {
             </label>
           </div>
 
-          <div className="flex justify-center w-full gap-4 my-4">
+          <div className="flex flex-col md:flex-row justify-center w-full gap-4 my-4">
             <label className="flex flex-1 flex-col font-bold mb-1.5">
               Salary Range
               <div className="w-full flex gap-3">
@@ -245,7 +245,7 @@ function Modal({ onClose, open }) {
             </label>
           </div>
 
-          <div className="w-full flex-col my-4">
+          <div className="w-full  flex-col md:flex-row my-4">
             <label htmlFor="description" className="flex flex-col font-bold mb-1.5">
               Job Description
               <textarea  
@@ -260,10 +260,19 @@ function Modal({ onClose, open }) {
               </textarea>
             </label>
           </div>
-          {/* <div className="w-full flex-col font-bold">
-            <label className="flex flex-col">
-              Requirements
-              <textarea name="" id=""></textarea>
+          {/* <div className="w-full  flex-col md:flex-row my-4">
+            <label htmlFor="description" className="flex flex-col font-bold mb-1.5">
+              Responsibilities
+              <textarea  
+               rows={4}
+               placeholder="Please share a description to let the candidate know more about the job role"
+               className="w-full px-3 pr-10 py-2 text-base focus:outline-0 placeholder:text-[#bcbcbc] placeholder:font-medium border border-[#bcbcbc] focus:border-[#222222] rounded-[10px]"
+               name="responsibilities" 
+               value={formData.responsibilities || ""}
+               id="responsibilities"
+               onChange={handleInput}
+               >
+              </textarea>
             </label>
           </div> */}
           {/* <div className="w-full flex-col font-bold">
@@ -273,7 +282,7 @@ function Modal({ onClose, open }) {
             </label>
           </div> */}
 
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <button type="button" className="flex items-center flex-shrink-0  text-[#222222] border-2 border-[#222222] px-10 py-2 rounded-xl font-semibold shadow-md cursor-pointer hover:brightness-110 active:brightness-90
     transition duration-150 ease-in-out">Save Draft<span className="ml-2.5"><MdKeyboardDoubleArrowDown /></span></button>
             <button type="submit" className="flex items-center flex-shrink-0 bg-[#00AAFF] text-white px-10 py-2 rounded-xl font-semibold shadow-md cursor-pointer hover:brightness-110 active:brightness-90
