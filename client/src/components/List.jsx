@@ -11,7 +11,7 @@ function List() {
   if (loading) {
     return( 
     <> 
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center h-20'>
       <Waveform
       size="35"
       stroke="3.5"
