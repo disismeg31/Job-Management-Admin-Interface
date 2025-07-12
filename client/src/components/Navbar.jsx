@@ -29,8 +29,7 @@ function Navbar() {
             <li className='items-center px-[24px] py-2 whitespace-nowrap'>Games</li>
             <li className='items-center px-[24px] py-2 whitespace-nowrap'>Overview</li>
             <li className='items-center px-[24px] py-2 whitespace-nowrap'>Testimonials</li>
-        </ul>
-        <button className='flex-shrink-0 text-white px-6 py-2 rounded-3xl font-semibold shadow-md cursor-pointer hover:brightness-110 active:brightness-90
+            <button className='flex-shrink-0 text-white px-6 py-2 rounded-3xl font-semibold shadow-md cursor-pointer hover:brightness-110 active:brightness-90
     transition duration-150 ease-in-out'
         style={{
         background: 'linear-gradient(180deg, rgb(161, 40, 255), rgb(97, 0, 173))',
@@ -41,6 +40,18 @@ function Navbar() {
           <span className='hidden md:block'>Create Jobs</span>  
             {/* Create Jobs */}
         </button>
+        </ul>
+        {/* <button className='flex-shrink-0 text-white px-6 py-2 rounded-3xl font-semibold shadow-md cursor-pointer hover:brightness-110 active:brightness-90
+    transition duration-150 ease-in-out'
+        style={{
+        background: 'linear-gradient(180deg, rgb(161, 40, 255), rgb(97, 0, 173))',
+        }}
+        onClick={()=>setOpenPopup(true)}
+        >
+          <span className='block md:hidden'><IoIosAddCircleOutline size={23}/></span>  
+          <span className='hidden md:block'>Create Jobs</span>   */}
+            {/* Create Jobs */}
+        {/* </button> */}
     </nav>
     {
       openPopup && 
