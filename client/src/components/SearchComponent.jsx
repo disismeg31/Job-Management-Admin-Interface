@@ -67,8 +67,8 @@ const { jobs, filters, setFilters } = useContext(JobsContext);
         value={filters.salary}
         onChange={handleChange}
         valueLabelDisplay="off"
-        min={10000}
-        max={700000}
+        min={0}
+        max={1000000}
         sx={{
             color: '#222222', // Change slider color
             height: 2, // thinner track

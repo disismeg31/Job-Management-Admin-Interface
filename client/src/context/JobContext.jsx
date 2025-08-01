@@ -14,7 +14,7 @@ function JobContextProvider({children}) {
         search:'',
         location:'',
         jobType:'',
-        salary:[0,Infinity]
+        salary:[0,1000000]
     })
     const [message,setMessage]=useState("")
     useEffect(() => {
@@ -58,8 +58,16 @@ function JobContextProvider({children}) {
     }
 
     updated = updated.filter(job => {
-      const salary = parseInt(job.salaryRange?.min || 0);
-      return salary >= filters.salary[0] && salary <= filters.salary[1];
+      // const salary = parseInt(job.salaryRange?.min || 0);
+      // return salary >= filters.salary[0] && salary <= filters.salary[1];
+
+      const jobMin = job.salaryRange?.min || 0;
+      const jobMax = job.salaryRange?.max || 0;
+      const filterMin = filters.salary[0];
+      const filterMax = filters.salary[1];
+
+      // Check if the job's salary range overlaps with the filter range
+      return jobMin <= filterMax && jobMax >= filterMin;
     });
 
     setFilteredJobs(updated);
